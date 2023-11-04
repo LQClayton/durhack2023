@@ -15,6 +15,14 @@ def brain_no_function():
     myFile2 = file_handle('phrases.txt')
     print(myFile1, myFile2)
 
+def make_buttons():
+    myFile1 = file_handle('emotions.txt')
+    pages = {}
+    for element in myFile1:
+        pages[element] = """
+        <|{element}|button|on_action=submit_scenario|>
+        """
+
 
 
 
