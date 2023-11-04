@@ -1,14 +1,16 @@
 import taipy as tp
 from taipy import Config, Core, Gui
 
+#Not sure how to generate a button for each word in the file and put on one page
+
 # A first data node configuration to model an input name.
-input_name_data_node_cfg = Config.configure_data_node(id="input_name")
+#input_name_data_node_cfg = Config.configure_data_node(id="input_name")
 # A second data node configuration to model the message to display.
-message_data_node_cfg = Config.configure_data_node(id="message")
+#message_data_node_cfg = Config.configure_data_node(id="message")
 # A task configuration to model the build_message function.
-build_msg_task_cfg = Config.configure_task("build_msg", build_message, input_name_data_node_cfg, message_data_node_cfg)
+#build_msg_task_cfg = Config.configure_task("build_msg", build_message, input_name_data_node_cfg, message_data_node_cfg)
 # The scenario configuration represents the whole execution graph.
-scenario_cfg = Config.configure_scenario("scenario", task_configs=[build_msg_task_cfg])
+#scenario_cfg = Config.configure_scenario("scenario", task_configs=[build_msg_task_cfg])
 
 def file_handle(filename):
     with open(filename, 'r') as f:
@@ -28,14 +30,18 @@ def brain_no_function():
     print(myFile1, myFile2)
 
 def make_buttons():
+    print("hello")
     myFile1 = file_handle('emotions.txt')
     pages = {}
     for element in myFile1:
-        pages[element] = """
-        <|{element}|button|on_action=enlarge|>
-        """
+        print(element)
+        #pages[element] = """<|{element}|button|on_action=enlarge|>"""
+    print('Hello world')
+    print(pages)
 
+make_buttons()
 
+"""
 if __name__ == "__main__":
     ################################################################
     #            Instantiate and run Core service                  #
@@ -53,4 +59,4 @@ if __name__ == "__main__":
 
     Gui(pages).run()
 
-make_buttons()
+"""
